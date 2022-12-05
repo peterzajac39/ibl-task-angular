@@ -49,7 +49,7 @@ export class AppComponent {
    * Function uses regex to mark certain substrings in result data
    */
   highlightText(text) {
-    const replaced = text.replace(/(FEW|BSC|SCT)([0-9]{3})/g, (g1, g2, g3) => {
+    const replaced = text.replace(/(FEW|BKN|SCT)([0-9]{3})/g, (g1, g2, g3) => {
       var prefix = '';
       if (g3 > 30) {
         // red highlight text
