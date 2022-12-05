@@ -1,0 +1,71 @@
+<div class="card">
+  <mat-card class="centered">
+    <mat-card-content>
+      <section class="example-section">
+        <label class="example-label">Message type:</label>
+        <mat-checkbox class="example-margin" [(ngModel)]="metar">
+          METAR
+        </mat-checkbox>
+        <mat-checkbox class="example-margin" [(ngModel)]="sigmet">
+          SIGMET
+        </mat-checkbox>
+        <mat-checkbox class="example-margin" [(ngModel)]="taf">
+          TAF
+        </mat-checkbox>
+      </section>
+      <section class="example-section">
+        <label class="example-label">Airport:</label>
+        <mat-form-field appearance="outline">
+          <input matInput [formControl]="airport" />
+        </mat-form-field>
+      </section>
+      <section class="example-section">
+        <label class="example-label">Countries:</label>
+        <mat-form-field appearance="outline">
+          <input matInput [formControl]="country" />
+        </mat-form-field>
+      </section>
+      <div [hidden]="!showError" class="alert">
+        <mat-icon fontIcon="warning"></mat-icon>
+        {{ errorMessage }}
+      </div>
+      <section class="rev">
+        <button (click)="getData()" mat-raised-button color="primary">
+          Create briefing
+        </button>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="table-content">
+  <mat-card>
+    <mat-card-content>
+      <mat-spinner [diameter]="50" *ngIf="spinnerService.visibility | async">
+      </mat-spinner>
+      <mat-card-header *ngIf="data.length == 0">
+        <mat-card-title>
+          <mat-icon fontIcon="inbox"></mat-icon> No data
+        </mat-card-title>
+      </mat-card-header>
+      <table>
+        <tbody>
+          <ng-container *ngFor="let item of groupedData | keyvalue">
+            <tr>
+              <th colspan="3">
+                <mat-icon fontIcon="flight"></mat-icon> {{ item.key }}
+              </th>
+            </tr>
+            <tr *ngFor="let info of item.value">
+              <td width="20%">{{ info.queryType }}</td>
+              <td width="20%">
+                {{ info.reportTime | date: 'M.d.yyyy hh:mm:ss ' }}
+              </td>
+              <td width="60%" [innerHTML]="info.text"></td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,73 @@
+.card {
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+label {
+  padding: 10px;
+  font-weight: bold;
+  width: 30%;
+}
+.example-section {
+  display: flex;
+  flex-grow: 1 !important;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+.rev {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.mat-mdc-form-field {
+  width: 100%;
+  margin-left: 40px;
+}
+
+.alert {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  border: 1px solid transparent;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.table-content {
+  margin: 0 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+
+th {
+  background-color: #eee;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+tr {
+  text-align: left;
+}
+td {
+  padding: 10px 20px;
+}
+table,
+td,
+th {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.mat-icon {
+  vertical-align: sub;
+}
+mat-card-header {
+  justify-content: center;
+}
+mat-spinner {
+  margin: auto;
+}
